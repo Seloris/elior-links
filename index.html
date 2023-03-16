@@ -20,7 +20,8 @@ a{
   </head>
   <body>
     <h1>Elior POC</h1>
-    <a id="cookie">Set cookie !</a>
+    <a id="cookie1">Set cookie Secure SameSite None !</a>
+    <a id="cookie2">Set cookie !</a>
     <a href="com.elior.poc://">com.elior.poc://</a>
     <a href="com.elior.poc://infos">com.elior.poc://infos</a>
     <a href="https://elior-poc.loca.lt">https://elior-poc.loca.lt</a>
@@ -31,8 +32,13 @@ a{
     <a href="https://timechefv2.loca.lt">https://timechefv2.loca.lt</a>
     <a href="https://timechefv2.loca.lt/my-orders">https://timechefv2.loca.lt/my-orders</a>
     <script>
-        document.getElementById('cookie').onclick = () => {
+        document.getElementById('cookie1').onclick = () => {
             document.cookie = `testdaniel=${new Date().toISOString()}; SameSite=None; Secure`;
+            console.log('cookie set');
+        }
+        
+          document.getElementById('cookie2').onclick = () => {
+            document.cookie = `testdaniel=${new Date().toISOString()};`;
             console.log('cookie set');
         }
     </script>
