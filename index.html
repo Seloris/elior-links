@@ -22,6 +22,7 @@ a{
     <h1>Elior POC</h1>
     <a id="cookie1">Set cookie Secure SameSite None !</a>
     <a id="cookie2">Set cookie !</a>
+    <a id="request">Request storage access</a>
     <a href="com.elior.poc://">com.elior.poc://</a>
     <a href="com.elior.poc://infos">com.elior.poc://infos</a>
     <a href="https://elior-poc.loca.lt">https://elior-poc.loca.lt</a>
@@ -32,6 +33,18 @@ a{
     <a href="https://timechefv2.loca.lt">https://timechefv2.loca.lt</a>
     <a href="https://timechefv2.loca.lt/my-orders">https://timechefv2.loca.lt/my-orders</a>
     <script>
+          document.getElementById('request').onclick = () => {
+            document
+            .requestStorageAccess()
+            .then(() => {
+              console.log('OK ACCESS');
+            })
+          .catch((err) => {
+            // If there is an error obtaining storage access.
+            console.error("Error obtaining storage access", err);
+          });        
+          }
+      
         document.getElementById('cookie1').onclick = () => {
             document.cookie = `testdaniel=${new Date().toISOString()}; SameSite=None; Secure`;
             console.log('cookie set');
